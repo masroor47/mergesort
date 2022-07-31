@@ -10,7 +10,8 @@ def merge(arr, l, mid, r):
     L = arr[l:mid]
     R = arr[mid:r]
     print(L, R)
-    sub_arr_length = len(L)
+    l_length = len(L)
+    r_length = len(R)
     # print(f"length of each sub array: {sub_arr_length}")
 
     #print(f"len of array: {len(arr[l:r])}")
@@ -18,10 +19,10 @@ def merge(arr, l, mid, r):
         #print(arr[l:i+1])
         print(f"left pointer: {l_pointer}, right pointer: {r_pointer}")
         #print(f"comparing {L[l_pointer]} and {R[r_pointer]}")
-        if r_pointer == sub_arr_length:
+        if r_pointer == r_length:
             arr[i] = L[l_pointer]
             l_pointer += 1
-        elif l_pointer == sub_arr_length:
+        elif l_pointer == l_length:
             arr[i] = R[r_pointer]
             r_pointer += 1
         elif L[l_pointer] < R[r_pointer]:
@@ -72,9 +73,9 @@ def mergeSort(arr, l, r):
 
 
 
-my_array = [random.randint(0, 20) for i in range(16)]
+my_array = [random.randint(0, 20) for i in range(15)]
 print(f"array bf sorting: {my_array}\n")
-print(mergeSort(my_array, 0, len(my_array)))
+mergeSort(my_array, 0, len(my_array))
 print(f"\narray after sorting: {my_array}")
 
 
